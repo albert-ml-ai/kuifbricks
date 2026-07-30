@@ -1,0 +1,21 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Terraform
+**/.terraform/*
+*.tfplan
+tfplan
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+
+# IDE and OS
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
