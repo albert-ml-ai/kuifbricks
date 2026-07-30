@@ -1,4 +1,7 @@
-# setup
+# Kuifbricks
+This Azure Databricks monorepo showcases best practices for building and operating data and ML platforms on Azure Databricks.
+
+It is designed to be modular and extensible, so you can use it as a starting point for your own projects.
 
 ## Things I did that are not in code
 
@@ -19,8 +22,8 @@
 1. Create the repo without main branch policies (powershell)
 - cd terraform\github-
 - terraform init-
-- terraform plan -var="enable_main_branch_protection=false"
-- terraform apply -var="enable_main_branch_protection=false"
+- terraform plan -var="repository_initialized=false"
+- terraform apply -var="repository_initialized=false"
 1. init the repo with main branch (powershell)
 - (cd ../..)
 - git init

@@ -25,12 +25,8 @@ variable "repository_name" {
 variable "repository_description" {
   description = "Description shown on the GitHub repository page."
   type        = string
-  default     = <<-EOT
-    This Azure Databricks monorepo is to showcase best practices for building and operating data & ML platforms
-    on Azure Databricks. It is designed to be modular and extensible, so that you can use it as a starting point
-    for your own projects.
-  EOT
-  nullable    = false
+  default     = "This Azure Databricks monorepo showcases best practices for building and operating data and ML platforms on Azure Databricks. It is designed to be modular and extensible, so you can use it as a starting point for your own projects."
+  nullable = false
 }
 
 variable "repository_topics" {
@@ -52,15 +48,16 @@ variable "repository_topics" {
 }
 
 # This variable facilitates initial repository bootstrap without branch policies.
-variable "enable_main_branch_protection" {
+variable "repository_initialized" {
   description = <<-EOT
-    Whether to create and enforce the ruleset protecting the main branch.
+    Whether the repository has been initialized with a "main" branch.
 
     Set this to false only during initial repository bootstrap. After the first
     main branch has been pushed, run Terraform again with the default value of
     true to enable branch protection.
     If this is true when you want to push your first main branch, you will get
     an error because the ruleset will prevent you from pushing to main.
+    If this is true when there is no main branch, you will get an error.
   EOT
 
   type    = bool

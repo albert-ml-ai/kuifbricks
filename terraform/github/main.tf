@@ -52,10 +52,12 @@ resource "github_repository_dependabot_security_updates" "kuifbricks" {
 }
 
 /* 2. Branch policies
-  Single long-lived branch called 'main'. This repository uses 
+  Single long-lived branch called 'main', becomes the default branch.
+  Requirements:
+  - repo was created above with terraform apply -var="repository_initialized=false"
 
   The ruleset is conditionally omitted during initial repository bootstrap,
-  with `terraform apply -var="enable_main_branch_protection=false"`,
+  with `terraform apply -var="repository_initialized=false"`,
   because the repository must first receive its initial main branch. After
   that first push, the ruleset is enabled and all future changes to main must
   be made through a pull request.
@@ -63,8 +65,15 @@ resource "github_repository_dependabot_security_updates" "kuifbricks" {
   Branch deletion and force pushes are blocked to preserve the long-lived
   branch and its history.
 */
+resource "github_branch_default" "main" {
+  count = var.repository_initialized ? 1 : 0
+
+  repository = github_repository.kuifbricks.name
+  branch     = "main"
+}
+
 resource "github_repository_ruleset" "main" {
-  count = var.enable_main_branch_protection ? 1 : 0
+  count = var.repository_initialized ? 1 : 0
 
   name        = "Protect main"
   repository  = github_repository.kuifbricks.name
