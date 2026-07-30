@@ -4,6 +4,7 @@
 
 1. install VS Code
 1. install terraform from https://developer.hashicorp.com/terraform/install#windows
+1. install VS Code extension Hashicorp Terraform
 1. install github CLI (powershell)
     - winget install --id GitHub.cli
     - gh auth login
@@ -26,8 +27,10 @@
 - git add .
 - git commit -m "Initialize repository"
 - git branch -M main
-- git remote add origin https://github.com/<owner>/<repository>.git
+- git remote add origin https://github.com/<github_owner>/<repository_name>.git
 - git push -u origin main
+1. again apply the terraform config as above, but now without the -var flag.
+
 
 ## Terraform/, what belongs where?
 

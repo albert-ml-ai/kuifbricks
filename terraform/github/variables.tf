@@ -26,11 +26,8 @@ variable "repository_description" {
   description = "Description shown on the GitHub repository page."
   type        = string
   default     = <<-EOT
-    This Azure Databricks monorepo is to showcase best practices for platform engineering,
-    data engineering, and MLOps. Nearly all settings are infrastructure-as-code with
-    industry-standard tooling. The repository is designed to be a reference architecture 
-    for building and operating data platforms on Azure Databricks.
-    It is designed to be modular and extensible, so that you can use it as a starting point
+    This Azure Databricks monorepo is to showcase best practices for building and operating data & ML platforms
+    on Azure Databricks. It is designed to be modular and extensible, so that you can use it as a starting point
     for your own projects.
   EOT
   nullable    = false
