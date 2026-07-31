@@ -26,7 +26,7 @@ variable "repository_description" {
   description = "Description shown on the GitHub repository page."
   type        = string
   default     = "This Azure Databricks monorepo showcases best practices for building and operating data and ML platforms on Azure Databricks. It is designed to be modular and extensible, so you can use it as a starting point for your own projects."
-  nullable = false
+  nullable    = false
 }
 
 variable "repository_topics" {
