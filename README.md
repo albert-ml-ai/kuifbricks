@@ -27,6 +27,7 @@ It is designed to be modular and extensible, so you can use it as a starting poi
 1. install VS Code extension Hashicorp Terraform
 1. install github CLI and authenticate (powershell)
     - winget install --id GitHub.cli
+    < close and reopen powerhell >
     - gh auth login
     - choose:
         - GitHub.com
@@ -37,13 +38,20 @@ It is designed to be modular and extensible, so you can use it as a starting poi
     - git ls-remote https://github.com/hashicorp/terraform.git HEAD
 1. Create Azure account with subscription, set monthly budget with alerts immediately
 1. install azure CLI and authenticate (powershell)
-    - ...
+    - winget install --exact --id Microsoft.AzureCLI
+    < close and reopen powerhell >
+    - az version
+    - az login
+    - az account show --output table
 1. Fill out terraform\github\terraform.tfvars, make sure your azure_subscription_id var is correct
+    - during terraform apply in next step, westeurope might be unavailable for new azure resources
+    - if needed, switch to different region e.g. northeurope in terraform/bootstrap/1_terraform_state/terraform.tfvars
 1. Run bootstrap terraform_state to create azure blob storage for remote .tfstate tracking
-    - cd terraform\bootstrap/1_terraform_state
+    - cd terraform/bootstrap/1_terraform_state
     - terraform init
     - terraform plan
     - terraform apply
+
 
 
 ------- To be updated: -----
