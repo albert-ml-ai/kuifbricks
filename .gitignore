@@ -19,3 +19,9 @@ crash.*.log
 .idea/
 .DS_Store
 Thumbs.db
+
+# pictures for explanation purposes (large files)
+*.png
+*.jpg
+*.jpeg
+*.gif
