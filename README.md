@@ -46,21 +46,16 @@ It is designed to be modular and extensible, so you can use it as a starting poi
 1. Fill out terraform\github\terraform.tfvars, make sure your azure_subscription_id var is correct
     - during terraform apply in next step, westeurope might be unavailable for new azure resources
     - if needed, switch to different region e.g. northeurope in terraform/bootstrap/1_terraform_state/terraform.tfvars
-1. Run bootstrap terraform_state to create azure blob storage for remote .tfstate tracking
+1. Run bootstrap terraform_state to create azure blob storage for remote .tfstate tracking (powershell)
     - cd terraform/bootstrap/1_terraform_state
     - terraform init
     - terraform plan
     - terraform apply
-
-
-
-------- To be updated: -----
-1. fill out terraform\github\terraform.tfvars, make sure your github_owner var is correct
-1. Terraform Apply terraform/github in bootstrap mode (powershell)
-- cd terraform\github
-- terraform init
-- terraform plan -var="repository_initialized=false"
-- terraform apply -var="repository_initialized=false"
+1. Run terraform/github in bootstrap mode (powershell)
+    - cd ..\..\github
+    - terraform init
+    - terraform plan -var="repository_initialized=false"
+    - terraform apply -var="repository_initialized=false"
 1. init the repo with main branch (powershell)
 - (cd ../..)
 - git init
@@ -69,8 +64,8 @@ It is designed to be modular and extensible, so you can use it as a starting poi
 - git branch -M main
 - git remote add origin https://github.com/<github_owner>/<repository_name>.git
 - git push -u origin main
-1. again apply the terraform config as above, but now without the -var flag.
 
+------- To be added later: -----
 ... for Databricks set auto-termination, restrictive cluster policies, and low quotas.
 
 ## Terraform/, what belongs where?
