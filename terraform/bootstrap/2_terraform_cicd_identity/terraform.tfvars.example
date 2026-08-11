@@ -1,0 +1,5 @@
+azure_subscription_id          = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+github_owner                   = "your-github-username"
+repository_name                = "kuifbricks"
+tfstate_resource_group_name    = "kuifbricks-terraform-state"
+tfstate_storage_account_name   = "kuifbrickstfstate"
