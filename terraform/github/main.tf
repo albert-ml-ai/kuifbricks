@@ -100,3 +100,18 @@ resource "github_repository_ruleset" "main" {
     prevent_destroy = true
   }
 }
+
+/* 3. GitHub Actions
+  GitHub Actions is enabled for the repository, but no workflows are defined
+  here. Workflows are defined in the .github/workflows directory of the
+  repository itself.
+
+  When running terraform apply for the first time with repository_initialized=true,
+  the ENABLE_CICD variable is created and set to true. Before that, it defaulted to false.
+  This is needed because CICD can only be set up after creating an SP identity to run the CICD with.
+*/
+resource "github_actions_variable" "enable_cicd" {
+  repository    = github_repository.kuifbricks.name
+  variable_name = "ENABLE_CICD"
+  value         = "true"
+}
