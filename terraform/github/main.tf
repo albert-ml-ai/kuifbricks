@@ -1,6 +1,6 @@
 /*
   This Terraform configuration manages the GitHub repository settings for
-  Kuifbricks. Why: managing repository settings through Terraform makes it
+  kuifbricks. Why: managing repository settings through Terraform makes it
   explicit, version-controlled and reproducible.
 */
 
