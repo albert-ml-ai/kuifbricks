@@ -1,6 +1,6 @@
 /*
   This Terraform configuration bootstraps the Azure Storage backend used by
-  the other Terraform root modules in the Kuifbricks repository.
+  the other Terraform root modules in the kuifbricks repository.
 
   It creates:
   - A dedicated Azure resource group

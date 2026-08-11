@@ -1,0 +1,43 @@
+name: Terraform apply
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      terraform_root:
+        description: "Terraform directory to apply"
+        required: true
+        type: choice
+        options:
+          - terraform/github
+          - terraform/azure
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  terraform-apply:
+    name: terraform / apply
+    if: ${{ vars.ENABLE_CICD == 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      # Terraform steps...
+      # terraform fmt -check
+      # terraform init
+      # terraform validate
+      # check if CI build wasnt expired
+      # optional: terraform plan "dir_name.tfplan"
+      # terraform apply dir_name.tfplan

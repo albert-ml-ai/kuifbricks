@@ -13,7 +13,7 @@ variable "github_owner" {
 variable "repository_name" {
   description = "Name of the GitHub repository."
   type        = string
-  default     = "Kuifbricks"
+  default     = "kuifbricks"
   nullable    = false
 
   validation {
